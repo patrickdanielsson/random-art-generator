@@ -12,3 +12,30 @@ body {
     top: 50%;
     overflow: visible;
 }
+
+button {
+    background-color: black;
+    border: 3px solid yellow;
+    border-radius: 1em;
+    box-shadow: 0 5px 5px rgba(0,0,0, .5);
+
+    color: yellow;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.1em;
+
+    padding: .5em 1em;
+    margin-left: -5em;
+    width: 10em;
+
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+
+    cursor: pointer;
+
+    transition: all 200ms;
+}
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 5px rgba(0,0,0, .5);
+}
