@@ -4,6 +4,15 @@ document.onreadystatechange = function() {
         const height = document.body.clientHeight;
         const width  = document.body.clientWidth;
 
+        const squaresRange = document.getElementById('squares');
+        const flowerRange = document.getElementById('flower');
+        const resetButton = document.getElementById('reset');
+
+        function clearCanvas() {
+            while(canvas.lastChild)
+                canvas.removeChild(canvas.lastChild);
+        }
+
         function generateSquares(numIteration) {
             for (let iteration=1; iteration <= numIteration; iteration++) {
                 let size = random(height/15, height/(random(1, iteration) * 2));
@@ -30,7 +39,7 @@ document.onreadystatechange = function() {
                 }
             }
         }
-        function generateMandala(numIteration) {
+        function generateFlower(numIteration) {
             for (let iteration=1; iteration <= numIteration; iteration++) {
                 let rectHeight = randomPixel(height/10, height/(random(1, iteration) + 1));
                 let rectWidth  = randomPixel(width/10, width/(random(1, iteration) + 1));
@@ -70,19 +79,20 @@ document.onreadystatechange = function() {
         }
 
         function generateArt() {
-            generateSquares(random(15, 35));
-            generateMandala(random(2, 10));
+            squaresRange.value = random(15, 35);
+            flowerRange.value = random(2, 10);
+            render();
         }
-
-        function clearCanvas() {
-            while(canvas.lastChild)
-                canvas.removeChild(canvas.lastChild);
-        }
-
-        document.getElementById('reset').addEventListener('click', function() {
+        function render() {
             clearCanvas();
-            generateArt();
-        });
+            generateSquares(squaresRange.value);
+            generateFlower(flowerRange.value);
+        }
+
+        squaresRange.addEventListener('change', render);
+        flowerRange.addEventListener('change', render);
+        resetButton.addEventListener('click', generateArt);
+
         generateArt();
 
         function random(min, max, res=1)        { return Math.floor((Math.random() * (max - min) + min) / res) * res; }

@@ -4,6 +4,11 @@ body {
     width: 100vw;
     margin: 0;
     overflow: hidden;
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: lighter;
+    color: white;
+    text-shadow: 0 0 2px black;
 }
 
 #canvas {
@@ -11,8 +16,21 @@ body {
     left: 50%;
     top: 50%;
     overflow: visible;
+    z-index: -1;
 }
 
+#controls {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    bottom: 5%;
+}
+#controls .control {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 button {
     background-color: black;
     border: 3px solid yellow;
@@ -24,12 +42,8 @@ button {
     font-size: 1.1em;
 
     padding: .5em 1em;
-    margin-left: -5em;
+    margin: 0 2em;
     width: 10em;
-
-    position: absolute;
-    left: 50%;
-    bottom: 5%;
 
     cursor: pointer;
 

@@ -6,7 +6,18 @@
     </head>
     <body>
         <div id="canvas"></div>
-        <button id="reset">Regenerate</button>
+        <div id="controls">
+            <div class="control">
+                <label for="squares">Squares complexity</label>
+                <input type="range" id="squares" min="1" max="50" value="1">
+            </div>
+            <button id="reset">Regenerate</button>
+            <div class="control">
+                <label for="flower">Flower complexity</label>
+                <input type="range" id="flower" min="1" max="25" value="1">
+            </div>
+        </div>
+        
         <script src="app.js"></script>
     </body>
 </html>
