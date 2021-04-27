@@ -5,3 +5,10 @@ body {
     margin: 0;
     overflow: hidden;
 }
+
+#canvas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    overflow: visible;
+}
