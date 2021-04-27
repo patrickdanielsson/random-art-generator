@@ -3,9 +3,38 @@ document.onreadystatechange = function() {
         const canvas = document.getElementById('canvas');
         const height = document.body.clientHeight;
         const width  = document.body.clientWidth;
+        var numIteration;
 
-        let num = random(2, 10);
-        for (let iteration=1; iteration <= num; iteration++) {
+        // Squares
+        numIteration = random(15, 35);
+        for (let iteration=1; iteration <= numIteration; iteration++) {
+            let size = random(height/15, height/(random(1, iteration) * 2));
+            let rectHeight = size+"px";
+            let rectWidth  = size+"px";
+
+            let opacity = Math.random() / 2 + 0.25;
+            let color = `${random(50, 200, 5)},${random(50, 200, 5)},${random(50, 200, 5)}`;
+            let rectBackground = `rgba(${color}, ${opacity})`;
+
+            let max = random(10, 20);
+            for (let num=1; num <= max; num++) {
+                let rect = document.createElement('div');
+                rect.style.position = "absolute";
+                rect.style.height = rectHeight;
+                rect.style.width  = rectWidth;
+                rect.style.top  = randomPixel(-(height+size/2), +(height+size/2));
+                rect.style.left = randomPixel(-(width+size/2), +(width+size/2));
+                rect.style.backgroundColor = rectBackground;
+
+                rect.style.transform = `rotate(${randomDegree(0, 360, 15)})`;
+
+                canvas.appendChild(rect);
+            }
+        }
+        
+        // Mandala
+        numIteration = random(2, 10);
+        for (let iteration=1; iteration <= numIteration; iteration++) {
             let rectHeight = randomPixel(height/10, height/(random(1, iteration) + 1));
             let rectWidth  = randomPixel(width/10, width/(random(1, iteration) + 1));
 
@@ -13,7 +42,7 @@ document.onreadystatechange = function() {
             let rectRadiusBoth = randomBoolean(2);
 
             let tilt = randomDegree(0, 180, 22.5);
-            let opacity = Math.random();
+            let opacity = Math.random() / 2 + 0.5;
             let color = `${random(50, 255, 5)},${random(50, 255, 5)},${random(50, 255, 5)}`;
 
             let rectBackground = `linear-gradient(${tilt}, rgba(${color}, ${opacity}), rgba(${color}, 0))`
