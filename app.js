@@ -4,34 +4,40 @@ document.onreadystatechange = function() {
         const height = document.body.clientHeight;
         const width  = document.body.clientWidth;
 
-        let rectHeight = randomPixel(height/10, height/2);
-        let rectWidth  = randomPixel(width/10, width/2);
+        let num = random(2, 10);
+        for (let iteration=1; iteration <= num; iteration++) {
+            let rectHeight = randomPixel(height/10, height/(random(1, iteration) + 1));
+            let rectWidth  = randomPixel(width/10, width/(random(1, iteration) + 1));
 
-        let tilt = randomDegree(0, 180, 22.5);
-        let opacity = Math.random();
-        let color = `${random(50, 255, 5)},${random(50, 255, 5)},${random(50, 255, 5)}`;
+            let tilt = randomDegree(0, 180, 22.5);
+            let opacity = Math.random();
+            let color = `${random(50, 255, 5)},${random(50, 255, 5)},${random(50, 255, 5)}`;
 
-        let rectBackground = `linear-gradient(${tilt}, rgba(${color}, ${opacity}), rgba(${color}, 0))`
+            let rectBackground = `linear-gradient(${tilt}, rgba(${color}, ${opacity}), rgba(${color}, 0))`;
 
-        let inc = random(10, 180);
-        for (let i=inc, j=360; j > 0; j--) {
-            let rect = document.createElement('div');
-            rect.style.position = "absolute";
-            rect.style.height = rectHeight;
-            rect.style.width  = rectWidth;
-            rect.style.background = rectBackground;
+            let inc = random(10, 180, 12);
+            let rotation = inc;
+            for (let security=360; security > 0; security--) {
+                let rect = document.createElement('div');
+                rect.style.position = "absolute";
+                rect.style.height = rectHeight;
+                rect.style.width  = rectWidth;
+                rect.style.borderTopRightRadius = rectHeight;
+                rect.style.background = rectBackground;
 
-            rect.style.transformOrigin = "top left";
-            rect.style.transform = `rotate(${i}deg)`;
+                rect.style.transformOrigin = "top left";
+                rect.style.transform = `rotate(${rotation}deg)`;
 
-            canvas.appendChild(rect);
+                canvas.appendChild(rect);
 
-            if (i === 0) break;
-            i = (i + inc) % 360;
+                if (rotation === 0)
+                    break;
+                rotation = (rotation + inc) % 360;
+            }
         }
 
-        function random(min, max, res=10)    { return Math.floor((Math.random() * (max - min) + min) / res) * res; }
-        function randomDegree(min, max, res) { return random(min, max, res) + "deg"; }
-        function randomPixel(min, max, res)  { return random(min, max, res) + "px"; }
+        function random(min, max, res=1)        { return Math.floor((Math.random() * (max - min) + min) / res) * res; }
+        function randomDegree(min, max, res=10) { return random(min, max, res) + "deg"; }
+        function randomPixel(min, max, res=10)  { return random(min, max, res) + "px"; }
     }
 };
