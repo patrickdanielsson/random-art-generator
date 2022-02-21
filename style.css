@@ -20,7 +20,7 @@ body {
 }
 
 #controls {
-    display: flex;
+    display: none;
     justify-content: center;
     position: absolute;
     width: 100%;
