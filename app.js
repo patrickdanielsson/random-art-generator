@@ -21,6 +21,7 @@ document.onreadystatechange = function() {
 
                 let opacity = Math.random() / 2 + 0.25;
                 let color = `${random(50, 200, 5)},${random(50, 200, 5)},${random(50, 200, 5)}`;
+                console.log(color);
                 let rectBackground = `rgba(${color}, ${opacity})`;
 
                 let max = random(10, 20);
@@ -97,7 +98,6 @@ document.onreadystatechange = function() {
         generateArt();
 
         function random(min, max, res=1)        { return Math.floor((Math.random() * (max - min) + min) / res) * res; }
-        console.log(Math.floor);
         function randomDegree(min, max, res=10) { return random(min, max, res) + "deg"; }
         function randomPixel(min, max, res=10)  { return random(min, max, res) + "px"; }
         function randomBoolean(bias=1)          { return !!Math.round(Math.random() * bias); }
