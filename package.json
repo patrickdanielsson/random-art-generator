@@ -1,0 +1,13 @@
+{
+  "name": "random-art-generator",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "author": "",
+  "license": "UNLICENSED",
+  "repository": {},
+  "private": true,
+  "dependencies": {
+    "react-color-extractor": "^1.1.2"
+  }
+}
