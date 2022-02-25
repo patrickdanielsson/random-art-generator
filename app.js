@@ -21,7 +21,6 @@ document.onreadystatechange = function() {
 
                 let opacity = Math.random() / 2 + 0.25;
                 let color = `${random(50, 200, 5)},${random(50, 200, 5)},${random(50, 200, 5)}`;
-                console.log(color);
                 let rectBackground = `rgba(${color}, ${opacity})`;
 
                 let max = random(10, 20);
@@ -51,6 +50,7 @@ document.onreadystatechange = function() {
                 let tilt = randomDegree(0, 180, 22.5);
                 let opacity = Math.random() / 2 + 0.5;
                 let color = `${random(50, 255, 5)},${random(50, 255, 5)},${random(50, 255, 5)}`;
+                console.log("Flower Color:", color);
 
                 let rectBackground = `linear-gradient(${tilt}, rgba(${color}, ${opacity}), rgba(${color}, 0))`
 
@@ -81,8 +81,9 @@ document.onreadystatechange = function() {
 
         function generateArt() {
             squaresRange.value = random(2, 49);
+            console.log("Squares Range:", squaresRange.value);
             flowerRange.value = random(2, 24);
-            console.log(squaresRange.value, flowerRange.value);
+            console.log("Flowers Range", flowerRange.value);
             render();
         }
         function render() {
