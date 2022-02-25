@@ -51,6 +51,8 @@ document.onreadystatechange = function() {
                 let opacity = Math.random() / 2 + 0.5;
                 let color = `${random(50, 255, 5)},${random(50, 255, 5)},${random(50, 255, 5)}`;
                 console.log("Flower Color:", color);
+                console.log("Flower Tilt:", tilt);
+                console.log("Flower Opacity:", opacity);
 
                 let rectBackground = `linear-gradient(${tilt}, rgba(${color}, ${opacity}), rgba(${color}, 0))`
 
