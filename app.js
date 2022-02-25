@@ -81,6 +81,7 @@ document.onreadystatechange = function() {
         function generateArt() {
             squaresRange.value = random(15, 35);
             flowerRange.value = random(2, 10);
+            console.log(squaresRange.value, flowerRange.value);
             render();
         }
         function render() {

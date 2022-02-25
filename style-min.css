@@ -1,0 +1,56 @@
+body {
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: lighter;
+    color: white;
+    text-shadow: 0 0 2px black;
+}
+
+#canvas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    overflow: visible;
+    z-index: -1;
+}
+
+#controls {
+    display: none;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    bottom: 5%;
+}
+#controls .control {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+button {
+    background-color: black;
+    border: 3px solid yellow;
+    border-radius: 1em;
+    box-shadow: 0 5px 5px rgba(0,0,0, .5);
+
+    color: yellow;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.1em;
+
+    padding: .5em 1em;
+    margin: 0 2em;
+    width: 10em;
+
+    cursor: pointer;
+
+    transition: all 200ms;
+}
+button:active {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    box-shadow: 0 2px 5px rgba(0,0,0, .5);
+}
