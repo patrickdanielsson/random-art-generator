@@ -93,45 +93,6 @@
       "rFN" : 0,
       "uCM" : 0
     },
-    "\/screenshots\/01.png" : {
-      "ft" : 32768,
-      "iS" : 1135350,
-      "oA" : 0,
-      "oAP" : "\/screenshots\/01.png",
-      "oF" : 0,
-      "oIPL" : 1,
-      "opt" : 1,
-      "oT" : 1,
-      "ou" : "lpckwebp-none",
-      "q" : 100,
-      "rq" : 75
-    },
-    "\/screenshots\/02.png" : {
-      "ft" : 32768,
-      "iS" : 1635543,
-      "oA" : 0,
-      "oAP" : "\/screenshots\/02.png",
-      "oF" : 0,
-      "oIPL" : 1,
-      "opt" : 1,
-      "oT" : 1,
-      "ou" : "lpckwebp-none",
-      "q" : 100,
-      "rq" : 75
-    },
-    "\/screenshots\/03.png" : {
-      "ft" : 32768,
-      "iS" : 772441,
-      "oA" : 0,
-      "oAP" : "\/screenshots\/03.png",
-      "oF" : 0,
-      "oIPL" : 1,
-      "opt" : 1,
-      "oT" : 1,
-      "ou" : "lpckwebp-none",
-      "q" : 100,
-      "rq" : 75
-    },
     "\/style-min.css" : {
       "aP" : 1,
       "bl" : 0,
