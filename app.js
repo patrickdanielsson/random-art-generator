@@ -49,12 +49,13 @@ document.onreadystatechange = function() {
 
                 let tilt = randomDegree(0, 180, 22.5);
                 let opacity = Math.random() / 2 + 0.5;
-                let color = `${random(50, 255, 5)},${random(50, 255, 5)},${random(50, 255, 5)}`;
+                let color = '#' + Math.floor(Math.random() * (0xffffff + 1)).toString(16).padStart(6, '0')
+//              let color = `${random(50, 255, 5)},${random(50, 255, 5)},${random(50, 255, 5)}`;
                 console.log("Flower Color:", color);
 //                console.log("Flower Tilt:", tilt);
 //                console.log("Flower Opacity:", opacity);
 
-                let rectBackground = `linear-gradient(${tilt}, rgba(${color}, ${opacity}), rgba(${color}, 0))`
+                let rectBackground = `linear-gradient(${tilt}, ${color}, ${opacity}, ${color}, 0)`
 
                 let inc = random(10, 190, 12);
                 let rotation = inc;
