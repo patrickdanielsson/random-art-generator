@@ -49,13 +49,9 @@ document.onreadystatechange = function() {
 
                 let tilt = randomDegree(0, 180, 22.5);
                 let opacity = Math.random() / 2 + 0.5;
-                let color = '#' + Math.floor(Math.random() * (0xffffff + 1)).toString(16).padStart(6, '0')
-//              let color = `${random(50, 255, 5)},${random(50, 255, 5)},${random(50, 255, 5)}`;
-                console.log("Flower Color:", color);
-//                console.log("Flower Tilt:", tilt);
-//                console.log("Flower Opacity:", opacity);
+                let color = `${random(50, 255, 5)},${random(50, 255, 5)},${random(50, 255, 5)}`;
 
-                let rectBackground = `linear-gradient(${tilt}, ${color}, ${opacity}, ${color}, 0)`
+                let rectBackground = `linear-gradient(${tilt}, rgba(${color}, ${opacity}), rgba(${color}, 0))`
 
                 let inc = random(10, 190, 12);
                 let rotation = inc;
@@ -83,10 +79,8 @@ document.onreadystatechange = function() {
         }
 
         function generateArt() {
-            squaresRange.value = random(2, 49);
-            console.log("Squares Range:", squaresRange.value);
-            flowerRange.value = random(2, 24);
-            console.log("Flowers Range", flowerRange.value);
+            squaresRange.value = random(15, 35);
+            flowerRange.value = random(2, 10);
             render();
         }
         function render() {
@@ -100,6 +94,9 @@ document.onreadystatechange = function() {
         resetButton.addEventListener('click', generateArt);
 
         generateArt();
+
+//        console.log("Squares Details:", squaresRange.value);
+//        console.log("Flowers Details", flowerRange.value);
 
         function random(min, max, res=1)        { return Math.floor((Math.random() * (max - min) + min) / res) * res; }
         function randomDegree(min, max, res=10) { return random(min, max, res) + "deg"; }
