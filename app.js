@@ -13,12 +13,45 @@ document.onreadystatechange = function() {
                 canvas.removeChild(canvas.lastChild);
         }
 
+        //All colors
+        const cryptoColors = [
+          "242, 169, 0",
+          "77, 77, 78",
+          "255, 255, 255",
+          "0, 255, 163",
+          "3, 225, 255",
+          "220, 31, 255",
+          "201, 157, 102",
+          "60, 60, 61",
+          "236, 240, 241",
+          "4, 181, 229",
+          "0, 96, 151",
+          "238, 140, 40",
+          "117, 46, 235",
+          "75, 71, 132",
+          "31, 26, 102",
+          "255, 142, 86",
+          "255, 114, 44"
+        ];
+
+        //Bitcoin        const cryptoColors = ["242, 169, 0", "77, 77, 78", "255, 255, 255"];
+        //ETH           const cryptoColors = ["201, 157, 102", "60, 60, 61", "236, 240, 241"];
+        //Solana        const cryptoColors = ["0, 255, 163", "3, 225, 255", "220, 31, 255"];
+        //Stellar        const cryptoColors = ["4, 181, 229"];
+        //Ripple        const cryptoColors = ["0, 96, 151"];
+        //BCH        const cryptoColors = ["238, 140, 40"];
+        //Proton        const cryptoColors = ["117, 46, 235"];
+        //XYO               "75, 71, 132", "31, 26, 102", "255, 142, 86", "255, 114, 44"
+        //USDT
+
         function generateSquares(numIteration) {
             for (let iteration=1; iteration <= numIteration; iteration++) {
                 let size = random(height/15, height/(random(1, iteration) * 2));
                 let rectHeight = size+"px";
                 let rectWidth  = size+"px";
                 let opacity = Math.random() / 2 + 0.25;
+//                let cryptoColor = cryptoColors[Math.floor(Math.random() * cryptoColors.length)];
+//                let color = `${cryptoColor}`;
                 let color = `${random(50, 200, 5)},${random(50, 200, 5)},${random(50, 200, 5)}`;
                 let rectBackground = `rgba(${color}, ${opacity})`;
 
@@ -48,6 +81,8 @@ document.onreadystatechange = function() {
 
                 let tilt = randomDegree(0, 180, 22.5);
                 let opacity = Math.random() / 2 + 0.5;
+//                let cryptoColor = cryptoColors[Math.floor(Math.random() * cryptoColors.length)];
+//                let color = `${cryptoColor}`;
                 let color = `${random(50, 255, 5)}, ${random(50, 255, 5)}, ${random(50, 255, 5)}`;
                 let rectBackground = `linear-gradient(${tilt}, rgba(${color}, ${opacity}), rgba(${color}, 0))`
                 let inc = random(10, 190, 12);
@@ -98,18 +133,5 @@ document.onreadystatechange = function() {
         function randomDegree(min, max, res=10) { return random(min, max, res) + "deg"; }
         function randomPixel(min, max, res=10)  { return random(min, max, res) + "px"; }
         function randomBoolean(bias=1)          { return !!Math.round(Math.random() * bias); }
-        var rgbToHex = function (rgb) {
-          var hex = Number(rgb).toString(16);
-          if (hex.length < 2) {
-            hex = "0" + hex;
-          }
-          return hex;
-        };
-        var fullColorHex = function(r,g,b) {
-          var red = rgbToHex(r);
-          var green = rgbToHex(g);
-          var blue = rgbToHex(b);
-          return red+green+blue;
-        };
       }
     };
