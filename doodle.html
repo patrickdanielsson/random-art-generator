@@ -10,12 +10,12 @@
 <body>
   <css-doodle>
   :doodle {
-    @grid: 30x30;
+    @grid: 1x1;
     @size: 100vh;
     overflow: hidden;
   }
   --hue: calc(180 + 1.5 * @row * @col);
-  background: hsl(var(--hue), 50%, 70%);
+  background: linear-gradient(360deg, #1C1C1C 10%, #494949 360%);
 </css-doodle>
 </body>
 </html>
