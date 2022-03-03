@@ -1,5 +1,10 @@
 document.onreadystatechange = function() {
     if (document.readyState === 'complete') {
+        const colorTheme = (new URLSearchParams(window.location.search)).get('theme');
+        console.log("colorTheme", colorTheme);
+        const detailRange = (new URLSearchParams(window.location.search)).get('level');
+        console.log("detailRange", detailRange);
+
         const canvas = document.getElementById('canvas');
         const height = document.body.clientHeight;
         const width  = document.body.clientWidth;
@@ -14,7 +19,7 @@ document.onreadystatechange = function() {
         }
 
         //All colors
-        const cryptoColors = [
+        const mix = [
           "242, 169, 0",
           "77, 77, 78",
           "255, 255, 255",
@@ -34,15 +39,29 @@ document.onreadystatechange = function() {
           "255, 114, 44"
         ];
 
-        //Bitcoin        const cryptoColors = ["242, 169, 0", "77, 77, 78", "255, 255, 255"];
-        //ETH           const cryptoColors = ["201, 157, 102", "60, 60, 61", "236, 240, 241"];
-        //Solana        const cryptoColors = ["0, 255, 163", "3, 225, 255", "220, 31, 255"];
-        //Stellar        const cryptoColors = ["4, 181, 229"];
-        //Ripple        const cryptoColors = ["0, 96, 151"];
-        //BCH        const cryptoColors = ["238, 140, 40"];
-        //Proton        const cryptoColors = ["117, 46, 235"];
-        //XYO               "75, 71, 132", "31, 26, 102", "255, 142, 86", "255, 114, 44"
-        //USDT
+        const pets = [
+          {code:"btc", rgb:"242, 169, 0"},
+          {code:"btc", rgb:""},
+          {code:"btc", rgb:""},
+          {code:"eth", rgb:""},
+          {code:"eth", rgb:""},
+          {code:"eth", rgb:""}
+        ];
+
+        var btc = ["242, 169, 0", "77, 77, 78", "255, 255, 255"];
+        var eth = ["201, 157, 102", "60, 60, 61", "236, 240, 241"];
+        var sol = ["0, 255, 163", "3, 225, 255", "220, 31, 255"];
+        var xrp = ["0, 96, 151"];
+        var xpr = ["117, 46, 235"];
+        var bnb = ["250 211 56"];
+        var xyo = ["75, 71, 132", "31, 26, 102", "255, 142, 86", "255, 114, 44"];
+        var pride = ["255, 0, 24", "255, 165, 44", "255, 255, 65", "0, 128, 24", "0, 0, 249", "134, 0, 125"];
+        var red = ["255, 0, 24"];
+        var blue = ["0, 0, 249"];
+        var orange = ["255, 165, 44"];
+        var violet = ["134, 0, 125"];
+        var yellow = ["255, 255, 65"];
+        var green = ["0, 128, 24"];
 
         function generateSquares(numIteration) {
             for (let iteration=1; iteration <= numIteration; iteration++) {
@@ -50,9 +69,11 @@ document.onreadystatechange = function() {
                 let rectHeight = size+"px";
                 let rectWidth  = size+"px";
                 let opacity = Math.random() / 2 + 0.25;
-//                let cryptoColor = cryptoColors[Math.floor(Math.random() * cryptoColors.length)];
-//                let color = `${cryptoColor}`;
-                let color = `${random(50, 200, 5)},${random(50, 200, 5)},${random(50, 200, 5)}`;
+                let themeColor = colorTheme;
+                let cryptoColor = themeColor[Math.floor(Math.random() * themeColor.length)];
+                console.log("cryptoColor", cryptoColor);
+                let color = `${cryptoColor}`;
+//                let color = `${random(50, 200, 5)}, ${random(50, 200, 5)}, ${random(50, 200, 5)}`;
                 let rectBackground = `rgba(${color}, ${opacity})`;
 
                 let max = random(10, 20);
@@ -110,14 +131,16 @@ document.onreadystatechange = function() {
             }
         }
         function generateArt() {
-            squaresRange.value = random(15, 35);
-            flowerRange.value = random(2, 10);
+            squaresRange.value = detailRange;
+            flowerRange.value = detailRange;
+//            squaresRange.value = random(15, 35);
+//            flowerRange.value = random(2, 10);
             render();
         }
         function render() {
             clearCanvas();
             generateSquares(squaresRange.value);
-            generateFlower(flowerRange.value);
+//            generateFlower(flowerRange.value);
         }
 
         squaresRange.addEventListener('change', render);
@@ -125,9 +148,6 @@ document.onreadystatechange = function() {
         resetButton.addEventListener('click', generateArt);
 
         generateArt();
-
-        console.log("Squares Details:", squaresRange.value);
-        console.log("Flowers Details", flowerRange.value);
 
         function random(min, max, res=1)        { return Math.floor((Math.random() * (max - min) + min) / res) * res; }
         function randomDegree(min, max, res=10) { return random(min, max, res) + "deg"; }

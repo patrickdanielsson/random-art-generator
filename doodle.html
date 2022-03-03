@@ -1,0 +1,21 @@
+<html>
+<head>
+  <script src="https://unpkg.com/css-doodle@0.25.2/css-doodle.min.js"></script>
+<style>
+  body {
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <css-doodle>
+  :doodle {
+    @grid: 30x30;
+    @size: 100vh;
+    overflow: hidden;
+  }
+  --hue: calc(180 + 1.5 * @row * @col);
+  background: hsl(var(--hue), 50%, 70%);
+</css-doodle>
+</body>
+</html>
