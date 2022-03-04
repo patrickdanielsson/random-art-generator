@@ -1,11 +1,22 @@
 <html>
 <head>
   <script src="https://unpkg.com/css-doodle@0.25.2/css-doodle.min.js"></script>
-<style>
+  <style>
+  :root {
+    --doodle: (
+      background-color: @p(#6392D9, #825DEB, #FF3C3C, #EB765D, #C863D9, #D96363, #7463D9);
+    );
+    --btc: (
+      background-color: @p(#f2a900, #4d4d4e, #ffffff);
+    );
+    --pride: (
+      background-color: @p(#FF0018, #FFA52C, #FFFF41, #008018, #0000F9, #86007D);
+    );
+  }
   body {
     margin: 0;
   }
-</style>
+  </style>
 </head>
 <body>
   <css-doodle>
@@ -14,11 +25,11 @@
     @size: 100vh;
     overflow: hidden;
   }
-  @shape: heart;
-  background: @pn(#FF0018, #FFA52C, #FFFF41, #008018, #0000F9, #86007D);
-  opacity: @pn(.9, .7, .6, .3);
+/* @shape: heart; */
+  @use: var(--btc);
+  opacity: @pick(@r(.2, 1));
   transform:
-  rotate(@pn(10deg, 50deg, 150deg, 45deg, 86deg))
+    rotate(@r(0deg, 360deg))
     scale(@r(.2, 1.1))
     translate(@m2.@r(±50%));
   </css-doodle>
