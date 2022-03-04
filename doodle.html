@@ -10,12 +10,18 @@
 <body>
   <css-doodle>
   :doodle {
-    @grid: 1x1;
+    @grid: 5x5;
     @size: 100vh;
     overflow: hidden;
   }
-  --hue: calc(180 + 1.5 * @row * @col);
-  background: linear-gradient(360deg, #1C1C1C 10%, #494949 360%);
+  @shape: windmill;
+  background: hsla(
+    calc(360 - @i * 4), 70%, 68%, @r.8
+  );
+  rotate(@r(0, 360));
+  transform:
+    scale(@r(.2, 1.5))
+    translate(@m2.@r(±50%));
 </css-doodle>
 </body>
 </html>
