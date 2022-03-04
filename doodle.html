@@ -21,12 +21,12 @@
 <body>
   <css-doodle>
   :doodle {
-    @grid: 9x9;
+    @grid: 10x10;
     @size: 100vh;
     overflow: hidden;
   }
 /* @shape: heart; */
-  @use: var(--btc);
+  @use: var(--doodle);
   opacity: @pick(@r(.2, 1));
   transform:
     rotate(@r(0deg, 360deg))
