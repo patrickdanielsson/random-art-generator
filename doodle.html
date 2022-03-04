@@ -15,9 +15,8 @@
     overflow: hidden;
   }
   @shape: windmill;
-  background: hsla(
-    calc(360 - @i * 4), 70%, 68%, @r.8
-  );
+  background: @pn(#FF0018, #FFA52C, #FFFF41, #008018, #0000F9, #86007D);
+  opacity: @pick(.9, .7, .6, .2);
   rotate(@r(0, 360));
   transform:
     scale(@r(.2, 1.5))
