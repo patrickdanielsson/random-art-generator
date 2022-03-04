@@ -10,17 +10,17 @@
 <body>
   <css-doodle>
   :doodle {
-    @grid: 5x5;
+    @grid: 9x9;
     @size: 100vh;
     overflow: hidden;
   }
-  @shape: windmill;
+  @shape: heart;
   background: @pn(#FF0018, #FFA52C, #FFFF41, #008018, #0000F9, #86007D);
-  opacity: @pick(.9, .7, .6, .2);
-  rotate(@r(0, 360));
+  opacity: @pn(.9, .7, .6, .3);
   transform:
-    scale(@r(.2, 1.5))
+  rotate(@pn(10deg, 50deg, 150deg, 45deg, 86deg))
+    scale(@r(.2, 1.1))
     translate(@m2.@r(±50%));
-</css-doodle>
+  </css-doodle>
 </body>
 </html>
