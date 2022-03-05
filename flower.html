@@ -30,30 +30,52 @@
     --btc: (
       background: @pick(#f2a900, #4d4d4e, #ffffff);
       );
-    --pride: (
-      background: @pick(#FF0018, #FFA52C, #FFFF41, #008018, #0000F9, #86007D);
+    --pride: @pick-d(#FF0018, #FFA52C, #FFFF41, #008018, #0000F9, #86007D);
+    --frame: (
+      background-color: var(--pride);
+      box-shadow: 0 0 10px @lp;
+      border-radius: 100%;
       );
+
     }
-  body {
-    margin: 0;
-  }
+    html,
+    body {
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 100vmin;
+      height: 100vmin;
+    }
+    css-doodle {
+        border: 1px black solid;
+    }
   </style>
 </head>
 <body>
+  <div class="container">
   <css-doodle>
   :doodle {
-    @grid: 8x8;
-    @size: 300px;
-    overflow: hidden;
-  }
-    @shape: clover, 5;
-    @use: var(--pride);
-    opacity: @pick(@r(.1, .8));
-    transform:
-      rotate(@r(0deg, 360deg))
-      scale(@r(.2, 1.1))
-      translate(@m2.@r(±50%));
+    @grid: 20x1 / 300px;
+     }
+@offset: center;
+@size: calc(100% / 20 * @index);
+opacity: calc(1.1 - 1 / 20 * @index);
+z-index: calc(20 - @index);
+background: #6392D9;
+clip-path: @shape(
+fill: evenodd;
+points: 500;
+scale: .5;
+r: cos(5t)^2 + sin(5t) + .3;
+);
   </css-doodle>
+</div>
   <button>Save to PNG</button>
   <script>
                 let doodle = document.querySelector('css-doodle');

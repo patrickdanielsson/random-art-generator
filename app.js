@@ -18,36 +18,6 @@ document.onreadystatechange = function() {
                 canvas.removeChild(canvas.lastChild);
         }
 
-        //All colors
-        const mix = [
-          "242, 169, 0",
-          "77, 77, 78",
-          "255, 255, 255",
-          "0, 255, 163",
-          "3, 225, 255",
-          "220, 31, 255",
-          "201, 157, 102",
-          "60, 60, 61",
-          "236, 240, 241",
-          "4, 181, 229",
-          "0, 96, 151",
-          "238, 140, 40",
-          "117, 46, 235",
-          "75, 71, 132",
-          "31, 26, 102",
-          "255, 142, 86",
-          "255, 114, 44"
-        ];
-
-        const pets = [
-          {code:"btc", rgb:"242, 169, 0"},
-          {code:"btc", rgb:""},
-          {code:"btc", rgb:""},
-          {code:"eth", rgb:""},
-          {code:"eth", rgb:""},
-          {code:"eth", rgb:""}
-        ];
-
         var btc = ["242, 169, 0", "77, 77, 78", "255, 255, 255"];
         var eth = ["201, 157, 102", "60, 60, 61", "236, 240, 241"];
         var sol = ["0, 255, 163", "3, 225, 255", "220, 31, 255"];
@@ -133,14 +103,14 @@ document.onreadystatechange = function() {
         function generateArt() {
             squaresRange.value = detailRange;
             flowerRange.value = detailRange;
-//            squaresRange.value = random(15, 35);
-//            flowerRange.value = random(2, 10);
+            squaresRange.value = random(15, 35);
+            flowerRange.value = random(2, 10);
             render();
         }
         function render() {
             clearCanvas();
-            generateSquares(squaresRange.value);
-//            generateFlower(flowerRange.value);
+//            generateSquares(squaresRange.value);
+            generateFlower(flowerRange.value);
         }
 
         squaresRange.addEventListener('change', render);
